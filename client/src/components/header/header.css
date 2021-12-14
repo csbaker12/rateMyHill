@@ -1,0 +1,43 @@
+.headerbg {
+  background-color: black;
+  padding: 1%2%;
+  margin-bottom: 0%;
+  color: white;
+}
+
+.headerlink {
+  text-align: center;
+  width: 20%;
+  margin-left: 40%;
+  font-size: 200%;
+}
+
+.headerlink:hover {
+  cursor: pointer;
+  color: rgb(160, 160, 160);
+}
+
+.dehazeicon {
+  display: flex;
+  justify-content: flex-end;
+  width: 15%;
+  margin-left: 85%;
+}
+
+.dehazehover:hover {
+  cursor: pointer;
+}
+
+.dropdownmodal {
+  text-align: center;
+  width: 10%;
+  background-color: black;
+  color: white;
+  margin: 25%50%;
+  font-size: 200%;
+}
+
+.modaloption:hover {
+  cursor: pointer;
+  color: lightgray;
+}

@@ -1,0 +1,79 @@
+.resortpagebg {
+  background-color: lightskyblue;
+}
+
+.resortcontainer {
+  margin: 0%5%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-bottom: 3%;
+  background-color: white;
+}
+
+.resorttitlecontainer {
+  background-color: lightgray;
+  padding: 1%1%;
+}
+
+.resorttitletext {
+  text-align: center;
+  font-weight: 600;
+  font-size: 350%;
+}
+
+.resortinfocontainer {
+  padding: 1%2%;
+}
+
+.resortstatscont {
+  background-color: rgb(212, 233, 229);
+  padding: 1%2%;
+}
+
+.resortstatstitle {
+  font-size: 200%;
+  text-align: center;
+}
+
+.resortinfotitle {
+  font-size: 200%;
+  text-align: center;
+}
+
+.resortinfocont {
+  background-color: rgb(198, 191, 216);
+  padding: 1%2%;
+}
+
+.resortdescriptioncont {
+  background-color: tan;
+  padding: 1%2%;
+}
+
+.resortdescriptiontext {
+  font-style: italic;
+  text-align: center;
+}
+
+.resortdescriptiontitle {
+  font-size: 200%;
+  text-align: center;
+}
+
+.resortreviewwrapper {
+  border: 1px solid black;
+  padding: 1%1%;
+}
+
+.addreviewbtn {
+  border: 1px solid black;
+  background-color: lightgrey;
+  width: 15%;
+  text-align: center;
+  margin-top: 1%;
+}
+
+.addreviewbtn:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
