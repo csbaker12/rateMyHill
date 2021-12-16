@@ -1,0 +1,34 @@
+.adminIndexWrapper {
+  margin: 3%5%;
+}
+
+.adminIndexResort {
+  border: 1px solid black;
+  margin-bottom: 2%;
+  width: 50%;
+  margin-left: 25%;
+  background-color: lightgray;
+}
+
+.adminIndexResort:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.adminIndexResortTitle {
+  text-align: center;
+}
+
+.adminIndexCreate {
+  border: 1px solid black;
+  background-color: rgb(32, 175, 32);
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 20%;
+  text-align: center;
+}
+
+.adminIndexCreate:hover {
+  cursor: pointer;
+  background-color: rgb(27, 109, 27);
+}

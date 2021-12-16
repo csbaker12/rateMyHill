@@ -4,7 +4,7 @@ import { EditorState, ContentState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-
+import './wysiwyg.css';
 import htmlToDraft from 'html-to-draftjs';
 
 const WYSIWYG = (props) => {
@@ -37,7 +37,7 @@ const WYSIWYG = (props) => {
   }, [props.editContent]);
 
   return (
-    <div>
+    <div className='wysiwygbg'>
       <Editor
         editorState={editorData.editorState}
         onEditorStateChange={onEditorStateChange}

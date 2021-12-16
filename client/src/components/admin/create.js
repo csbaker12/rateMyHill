@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { TextField, Button, FormHelperText } from '@material-ui/core';
 import WYSIWYG from '../utils/wysiwyg';
 import { createResort } from '../../store/actions/resort_actions';
+import './adminCreate.css';
 
 const Create = () => {
   let notifications = useSelector((state) => state.notifications);
@@ -62,7 +63,7 @@ const Create = () => {
   };
 
   return (
-    <div>
+    <div className='adminCreateWrapper'>
       {isAdmin ? (
         <div>
           <form onSubmit={formik.handleSubmit}>

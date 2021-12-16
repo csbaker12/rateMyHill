@@ -20,5 +20,6 @@ export const GET_ALL_USERS = 'get_all_users';
 export const DELETE_USER = 'delete_user';
 export const DELETE_REVIEW = 'delete_review';
 export const GET_USER_BY_ID = 'get_user_by_id';
+export const UPDATE_USER = 'update_user';
 export const ACCOUNT_VERIFY = 'account_verify';
 // export const SIGN_OUT = 'sign_out';

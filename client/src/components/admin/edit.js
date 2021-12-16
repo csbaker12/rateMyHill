@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import { TextField, Button, FormHelperText } from '@material-ui/core';
 import WYSIWYG from '../utils/wysiwyg';
 import { updateResort, deleteResort } from '../../store/actions/resort_actions';
+import './adminEdit.css';
 
 const Edit = () => {
   let resorts = useSelector((state) => state.resorts);
@@ -78,7 +79,7 @@ const Edit = () => {
   };
 
   return (
-    <div>
+    <div className='adminEditWrapper'>
       {loaded && isAdmin ? (
         <div>
           <form onSubmit={formik.handleSubmit}>
@@ -87,6 +88,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='name'
                 variant='outlined'
+                label='name'
                 {...formik.getFieldProps('name')}
                 {...errorHelper(formik, 'name')}
               />
@@ -96,6 +98,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='email'
                 variant='outlined'
+                label='email'
                 {...formik.getFieldProps('email')}
                 {...errorHelper(formik, 'email')}
               />
@@ -105,6 +108,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='phone'
                 variant='outlined'
+                label='phone'
                 {...formik.getFieldProps('phone')}
                 {...errorHelper(formik, 'phone')}
               />
@@ -114,6 +118,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='address'
                 variant='outlined'
+                label='address'
                 {...formik.getFieldProps('address')}
                 {...errorHelper(formik, 'address')}
               />
@@ -123,6 +128,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='city'
                 variant='outlined'
+                label='city'
                 {...formik.getFieldProps('city')}
                 {...errorHelper(formik, 'city')}
               />
@@ -132,6 +138,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='state'
                 variant='outlined'
+                label='state'
                 {...formik.getFieldProps('state')}
                 {...errorHelper(formik, 'state')}
               />
@@ -141,6 +148,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='postalCode'
                 variant='outlined'
+                label='zip'
                 {...formik.getFieldProps('postalCode')}
                 {...errorHelper(formik, 'postalCode')}
               />
@@ -150,6 +158,7 @@ const Edit = () => {
                 style={{ width: '100%' }}
                 name='website'
                 variant='outlined'
+                label='website'
                 {...formik.getFieldProps('website')}
                 {...errorHelper(formik, 'website')}
               />
@@ -160,6 +169,7 @@ const Edit = () => {
                 name='longitude'
                 type='number'
                 variant='outlined'
+                label='longitude'
                 {...formik.getFieldProps('longitude')}
                 {...errorHelper(formik, 'longitude')}
               />
@@ -170,6 +180,7 @@ const Edit = () => {
                 name='latitude'
                 type='number'
                 variant='outlined'
+                label='latitude'
                 {...formik.getFieldProps('latitude')}
                 {...errorHelper(formik, 'latitude')}
               />
@@ -180,6 +191,7 @@ const Edit = () => {
                 name='runs'
                 type='number'
                 variant='outlined'
+                label='runs'
                 {...formik.getFieldProps('runs')}
                 {...errorHelper(formik, 'runs')}
               />
@@ -190,18 +202,19 @@ const Edit = () => {
                 name='lifts'
                 type='number'
                 variant='outlined'
+                label='lifts'
                 {...formik.getFieldProps('lifts')}
                 {...errorHelper(formik, 'lifts')}
               />
             </div>
 
             <div className='mt-3'>
+              Description:
               <WYSIWYG
                 setEditorState={(state) => handleEditorState(state)}
                 setEditorBlur={(blur) => handleEditorBlur(blur)}
                 editContent={editDescription}
               />
-
               {formik.errors.description && editorBlur ? (
                 <FormHelperText error={true}>
                   {formik.errors.description}

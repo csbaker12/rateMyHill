@@ -7,9 +7,9 @@
 
 .headerlink {
   text-align: center;
-  width: 20%;
-  margin-left: 40%;
-  font-size: 200%;
+  width: 100%;
+  font-size: 195%;
+  padding: 10%0%;
 }
 
 .headerlink:hover {
@@ -18,10 +18,9 @@
 }
 
 .dehazeicon {
-  display: flex;
-  justify-content: flex-end;
-  width: 15%;
-  margin-left: 85%;
+  width: 50%;
+  margin-top: 30%;
+  margin-left: 25%;
 }
 
 .dehazehover:hover {
@@ -30,10 +29,10 @@
 
 .dropdownmodal {
   text-align: center;
-  width: 10%;
-  background-color: black;
+  width: 75%;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  margin: 25%50%;
+  margin: 25%12%;
   font-size: 200%;
 }
 

@@ -5,6 +5,7 @@ import { TextField, Button, FormHelperText } from '@material-ui/core';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { addReview } from '../../store/actions/review_actions';
+import './reviewForm.css';
 
 const ReviewForm = () => {
   let resorts = useSelector((state) => state.resorts);
@@ -49,13 +50,12 @@ const ReviewForm = () => {
 
   return (
     <>
-      <hr />
       {/* sup {resorts.resort._id}{' '} */}
       <form onSubmit={formik.handleSubmit}>
         {' '}
-        <div>
+        <div className='mt-3'>
           <TextField
-            style={{ width: '100%' }}
+            style={{ width: '100%', backgroundColor: 'white' }}
             name='author'
             label='Your name'
             variant='outlined'
@@ -63,9 +63,9 @@ const ReviewForm = () => {
             {...errorHelper(formik, 'author')}
           />
         </div>
-        <hr />
+        <br />
         <div>
-          Leave a review:
+          Leave a Review:
           <WYSIWYG
             setEditorState={(state) => handleEditorState(state)}
             setEditorBlur={(blur) => handleEditorBlur(blur)}
@@ -82,23 +82,24 @@ const ReviewForm = () => {
             {...errorHelper(formik, 'content')}
           />
         </div>
-        <hr />
         <div>
+          Rating:
           <TextField
-            style={{ width: '100%' }}
+            style={{ width: '100%', backgroundColor: 'white' }}
             name='rating'
             type='number'
-            label='Rating'
             variant='outlined'
             {...formik.getFieldProps('rating')}
             {...errorHelper(formik, 'rating')}
             InputProps={{ inputProps: { max: 5, min: 0 } }}
           />
         </div>
-        <hr />
-        <Button variant='contained' color='primary' type='submit'>
-          Post Review
-        </Button>
+        <br />
+        <div className='postreviewbtn'>
+          <Button variant='contained' color='primary' type='submit'>
+            Post Review
+          </Button>
+        </div>
       </form>
     </>
   );

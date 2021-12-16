@@ -22,6 +22,7 @@ import {
   DELETE_USER,
   GET_USER_BY_ID,
   ACCOUNT_VERIFY,
+  UPDATE_USER,
 } from '../types';
 
 export const getResorts = (resortList) => ({
@@ -133,6 +134,11 @@ export const getUserById = (id) => ({
 
 export const accountVerify = () => ({
   type: ACCOUNT_VERIFY,
+});
+
+export const updateUser = (user) => ({
+  type: UPDATE_USER,
+  payload: user,
 });
 
 // export const signOut = () => ({

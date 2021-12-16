@@ -146,21 +146,68 @@ module.exports = {
   },
   update: async (data) => {
     let success = false;
+    console.log(data);
     try {
-      const user = await User.findOneAndUpdate(
-        { _id: data.id },
-        {
-          $set: {
-            username: data.username,
-            email: data.email,
-            password: data.password,
-          },
-        },
-        { new: true }
-      );
-      if (user) {
-        success = true;
+      if (data.oldPassword && data.oldPassword != '') {
+        console.log('password present');
+        const userData = await User.findById(data.id);
+        const match = await bcrypt.compare(data.oldPassword, userData.password);
+        if (!match) {
+          console.log('bad password');
+          return { success: false };
+        } else {
+          console.log(data);
+          if (data.newPassword === '' || data.newPassword === null) {
+            console.log('did not nail it');
+          } else if (data.newPassword === data.confirmPassword) {
+            const salt = await bcrypt.genSalt(10);
+            const hash = await bcrypt.hash(data.newPassword, salt);
+            data.newPassword = hash;
+            const user = await User.findOneAndUpdate(
+              { _id: data.id },
+              {
+                $set: {
+                  username: data.username,
+                  email: data.email,
+                  password: data.newPassword,
+                },
+              },
+              { new: true }
+            );
+            if (user) {
+              success = true;
+              return { user, success };
+            }
+          } else {
+            console.log('cannot confirm password');
+          }
+        }
+      } else {
+        console.log('checking username and email');
+        if (data.username && data.email) {
+          console.log('matched');
+          const user = await User.findOneAndUpdate(
+            { _id: data.id },
+            {
+              $set: {
+                username: data.username,
+                email: data.email,
+              },
+            },
+            { new: true }
+          );
+          if (user) {
+            success = true;
+            return {
+              user,
+              success,
+            };
+          }
+        } else {
+          console.log('please submit valid info');
+        }
       }
+
       return {
         user,
         success,

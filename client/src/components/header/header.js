@@ -93,7 +93,7 @@ const Header = () => {
           <div className='col-3'>
             <div className='dehazeicon dehazehover' onClick={handleDropDown}>
               {' '}
-              <DehazeIcon style={{ height: '3vw', width: '3vw' }} />
+              <DehazeIcon style={{ height: '100%', width: '100%' }} />
             </div>
           </div>
         </div>

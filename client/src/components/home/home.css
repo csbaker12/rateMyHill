@@ -18,10 +18,18 @@
 .marker {
   background-image: url('../../images/mapbox-icon.png');
   background-size: cover;
-  width: 3vw;
-  height: 3vw;
-  border-radius: 50%;
   cursor: pointer;
+  width: 200%;
+  padding-bottom: 100%;
+  padding-top: 30%;
+}
+
+.markertitle {
+  background-color: rgba(35, 55, 75, 0.8);
+  color: white;
+  text-align: center;
+  width: 15vw;
+  margin-left: 25%;
 }
 
 .resortmodalcard {
@@ -29,11 +37,4 @@
   height: 400px;
   width: 400px;
   z-index: 1;
-}
-
-.markertitle {
-  background-color: black;
-  color: white;
-  font-size: 80%;
-  text-align: center;
 }

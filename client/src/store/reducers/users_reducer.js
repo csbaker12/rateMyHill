@@ -5,6 +5,7 @@ import {
   GET_ALL_USERS,
   DELETE_USER,
   GET_USER_BY_ID,
+  UPDATE_USER,
 } from '../types';
 
 let DEFAULT_USER_STATE = {
@@ -37,6 +38,8 @@ export default function resortReducer(state = {}, action) {
     case DELETE_USER:
       return { ...state, deletedUser: action.payload };
     case GET_USER_BY_ID:
+      return { ...state, currentUser: action.payload };
+    case UPDATE_USER:
       return { ...state, currentUser: action.payload };
     default:
       return state;

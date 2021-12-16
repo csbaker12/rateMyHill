@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getResorts } from '../../store/actions/resort_actions';
 import { useNavigate } from 'react-router-dom';
 import { clearResort } from '../../store/actions';
+import './adminIndex.css';
 
 const Admin = () => {
   let resorts = useSelector((state) => state.resorts);
@@ -60,24 +61,29 @@ const Admin = () => {
   };
 
   return (
-    <>
+    <div className='adminIndexWrapper'>
       {loaded && isAdmin ? (
         <div>
           {resorts.resortList.resorts.map((item) => (
             <div>
               {item.isActive && item.userId === userId ? (
-                <div onClick={() => handleEdit(item)} key={item._id}>
-                  {item.name}
+                <div
+                  className='adminIndexResort'
+                  onClick={() => handleEdit(item)}
+                  key={item._id}>
+                  <div className='adminIndexResortTitle'> {item.name}</div>
                 </div>
               ) : null}
             </div>
           ))}
-          <div onClick={handleCreateResort}>Create Resort</div>
+          <div className='adminIndexCreate' onClick={handleCreateResort}>
+            Create Resort
+          </div>
         </div>
       ) : (
         <div>You either don't have access or I'm bad at coding</div>
       )}
-    </>
+    </div>
   );
 };
 

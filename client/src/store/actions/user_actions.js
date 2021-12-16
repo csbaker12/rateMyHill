@@ -94,7 +94,7 @@ export const getUserById = (id) => {
 };
 
 export const accountVerify = (token) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       await axios.get(`/user/verify/${token.token}`);
 
@@ -102,6 +102,18 @@ export const accountVerify = (token) => {
       dispatch(users.successGlobal('Account Verified!'));
     } catch (error) {
       dispatch(users.errorGlobal('Error verifying account'));
+    }
+  };
+};
+
+export const updateUser = (userData) => {
+  return async (dispatch) => {
+    try {
+      const user = await axios.patch(`/user/profile`, userData);
+      dispatch(users.updateUser(user.data));
+      dispatch(users.successGlobal('User Updated!'));
+    } catch (error) {
+      dispatch(users.errorGlobal('Error updating user'));
     }
   };
 };

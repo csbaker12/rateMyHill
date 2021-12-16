@@ -10,6 +10,8 @@ import ReviewForm from './reviewForm';
 const Resort = () => {
   let resorts = useSelector((state) => state.resorts);
   let reviews = useSelector((state) => state.reviews);
+  let notifications = useSelector((state) => state.notifications);
+  let users = useSelector((state) => state.users);
 
   const current = resorts?.resort;
   const currentReviews = reviews.reviews;
@@ -17,6 +19,7 @@ const Resort = () => {
   const [loading, setLoading] = useState(true);
   const [loadReviews, setLoadReviews] = useState(false);
   const [reviewForm, setReviewForm] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,11 +35,27 @@ const Resort = () => {
   useEffect(() => {
     if (current && reviews.reviews) {
       console.log(current);
-      setLoading(false);
       setLoadReviews(true);
       console.log(currentReviews);
     }
   }, [current, reviews.reviews]);
+  useEffect(() => {
+    if (current) {
+      setLoading(false);
+    }
+  });
+
+  useEffect(() => {
+    if (users && users.data) {
+      checkStatus();
+    }
+  }, [users, notifications]);
+
+  const checkStatus = () => {
+    if (users.data._id) {
+      setLoggedIn(true);
+    }
+  };
 
   const toggleForm = () => {
     if (reviewForm) {
@@ -75,7 +94,7 @@ const Resort = () => {
                     <div> runs: {current.runs}</div>
                     <div>lifts: {current.lifts}</div>
                     <div>
-                      <p>rating: {current.rating}</p>
+                      <p>rating: {current.rating[0].toFixed(2)}</p>
                     </div>
                   </div>
                 </div>
@@ -92,9 +111,24 @@ const Resort = () => {
                     <div> webiste: {current.website}</div>
                   </div>
                 </div>
+                {loggedIn ? (
+                  <div className='addreviewbtn' onClick={toggleForm}>
+                    {reviewForm ? (
+                      <span>Hide Form</span>
+                    ) : (
+                      <span>Add Review</span>
+                    )}{' '}
+                  </div>
+                ) : null}
+                <br />
+                {reviewForm ? (
+                  <div>
+                    <ReviewForm />
+                  </div>
+                ) : null}
                 {reviews.reviews.resort.map((item) => (
                   <div>
-                    {item.isActive ? (
+                    {item.review.isActive ? (
                       <div
                         key={item.review._id}
                         className='resortreviewwrapper'>
@@ -125,20 +159,6 @@ const Resort = () => {
                     ) : null}
                   </div>
                 ))}
-                <div className='addreviewbtn' onClick={toggleForm}>
-                  {reviewForm ? (
-                    <span>Hide Form</span>
-                  ) : (
-                    <span>Add Review</span>
-                  )}
-                </div>
-                {reviewForm ? (
-                  <div>
-                    <ReviewForm />
-                  </div>
-                ) : (
-                  <div>no form</div>
-                )}
               </div>
             </div>
           ) : (
